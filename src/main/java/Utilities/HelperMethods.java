@@ -1,94 +1,68 @@
-package Utilities;                      //A class that meant to provide additional methods to use for supporting tests, such as taking a screenshot.
-                                        // Inherits from CommonOps class
+package Utilities;      //A class that is meant to provide additional methods to use for supporting tests,
+                        // such as generating random user names, read from a configuration file, counting and
+                        // storing data in variables etc. Inherits from CommonOps class
 
-import WorkFlows.WebFlows;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
-import javax.imageio.ImageIO;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.w3c.dom.Document;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class HelperMethods extends CommonOps{
+public class HelperMethods extends CommonOps {
 
-    public static int _numberOfElementsBeforeAction;
+    //GENERAL METHODS
 
-    public static SimpleDateFormat dateFormat;
+    public static String getDataFromXML(String nodeName) {                  //Reading configuration data from the Config.xml file under Configuration directory
+        File fXmlFile;
+        DocumentBuilderFactory dbFactory;
+        DocumentBuilder dBuilder;
+        Document doc = null;
 
-    public static String returnRandomDate(){
+        try {
+            fXmlFile = new File("./Configurations/Config.xml");
+            dbFactory = DocumentBuilderFactory.newInstance();
+            dBuilder = dbFactory.newDocumentBuilder();
+            doc = dBuilder.parse(fXmlFile);
+            doc.getDocumentElement().normalize();
+        } catch (Exception e) {
+            System.out.println("Exception in reading XML file: " + e);
+        } finally {
+            return doc.getElementsByTagName(nodeName).item(0).getTextContent();
+        }
+    }
+
+    //DATA GENERATORS - Reading String variables from DataGenerators class
+
+    public static String returnRandomDate() {
         dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String newDateFormat = dateFormat.format(new Date());
         return newDateFormat;
     }
 
-    public static void takeElementScreenshot(WebElement elem, String imgName){
-        imageScreenshot = new AShot().coordsProvider(new WebDriverCoordsProvider()).takeScreenshot(driver, elem);
-        try{
-            ImageIO.write(imageScreenshot.getImage(), "png", new File(getDataFromXML("ImageRepo")+ imgName + returnRandomDate() + ".png"));
-        }catch (Exception e){
-            System.out.println("Error writing image file, see details: " + e);
-        }
-    }
-
-    public static WebElement selectorTypePicker(String identifierType, String identifierValue) {
-        WebElement x;
-        if (identifierType.equalsIgnoreCase("id")) {
-            x = driver.findElement(By.id(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("className")) {
-            x = driver.findElement(By.className(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("linkText")) {
-            x = driver.findElement(By.linkText(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("xpath")) {
-            x = driver.findElement(By.xpath(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("css")) {
-            x = driver.findElement(By.cssSelector(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("tagName")) {
-            x = driver.findElement(By.tagName(identifierValue));
-        } else if (identifierType.equalsIgnoreCase("partialLinkText")) {
-            x = driver.findElement(By.partialLinkText(identifierValue));
-        } else if(identifierType.equalsIgnoreCase("name")) {
-            x = driver.findElement(By.name(identifierValue));
-        }
-        else x = null;
-        return x;
-    }
-
-    public static String returnRandomName(){
-        String[] _names = RandomDataGenerators.names.split(" ");
-        int randomNum = ThreadLocalRandom.current().nextInt(0, _names.length-1);
+    public static String returnRandomName() {
+        String[] _names = DataGenerators.names.split(" ");
+        int randomNum = ThreadLocalRandom.current().nextInt(0, _names.length - 1);
         return _names[randomNum];
     }
 
-    public static String returnRandomEmailProvider(){
-        int randomNum = ThreadLocalRandom.current().nextInt(0, 4);
-        String[] _nemailProviders = RandomDataGenerators.emailProviders.split(" ");
-        return _nemailProviders[randomNum];
-    }
 
-    public static String returnRandomPassword(){
-        String fullPassword;
-        String[] _fullPassword = new String[10];
-        String[] _numbersAndSymbols = RandomDataGenerators.numbersAndSymbols.split(" ");
+    //BASECAMP WEB HELPER METHODS
 
-        for (int i = 0; i < 10; i++) {
-            int randomNum = ThreadLocalRandom.current().nextInt(0, 17);
-            _fullPassword[i]=_numbersAndSymbols[randomNum];
+    public static boolean assertForHomePage() {
+        boolean isHomePage = true;
+        if (driver.getCurrentUrl().equals("https://basecamp.com/")) {
+            isHomePage = false;
         }
-        fullPassword = _fullPassword.toString();
-        return fullPassword;
-    }
-
-    public static String randomEmailGenerator(){
-        String email = returnRandomName()+returnRandomDate()+"@"+returnRandomEmailProvider()+".com";
-        return email;
-    }
-
-    public static String returnRandomFullName(){
-        String randomFullName = returnRandomName()+" "+returnRandomName();
-        return randomFullName;
+        return isHomePage;
     }
 
 }
+
+
