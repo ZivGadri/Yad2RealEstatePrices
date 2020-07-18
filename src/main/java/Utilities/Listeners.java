@@ -7,10 +7,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
-
-import static Utilities.HelperMethods.captureScreenshotMobile;
-
 public class Listeners extends CommonOps implements ITestListener {
 
 
@@ -28,13 +24,7 @@ public class Listeners extends CommonOps implements ITestListener {
 
     public void onTestFailure(ITestResult test) {
         System.out.println("-------------------Test " + test.getName() + " Failed!-------------------");
-        if (platform.equalsIgnoreCase("mobile")) {
-            try {
-                captureScreenshotMobile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else saveScreenshot();
+         saveScreenshot();
     }
 
     public void onTestSkipped(ITestResult test) {

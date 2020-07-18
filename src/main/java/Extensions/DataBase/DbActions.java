@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 public class DbActions extends CommonOps {
 
-    @Step("Post Basecamp new user info to Basecamp Credentials Table")
+   /* @Step("Post Basecamp new user info to Basecamp Credentials Table")
     public static void postCredentials() {
         try {
             statement = connection.createStatement();
@@ -41,5 +41,5 @@ public class DbActions extends CommonOps {
         } catch (Exception e) {
             System.out.println("Error while posting data");
         }
-    }
+    }*/
 }
