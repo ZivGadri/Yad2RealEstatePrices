@@ -1,16 +1,17 @@
-package WorkFlows;              //Represents regular routine tasks and operations that the system does: Creating / removing users,
-                                // new tasks etc. - Inherits from CommonOps
+package Main;
 
 import Extensions.Web.UiActions;
-import Utilities.CommonOps;
-import io.qameta.allure.Step;
+import Utilities.Base;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static Utilities.HelperMethods.getDataFromXML;
 
-public class WebFlows extends CommonOps {
+public class Main extends Base {
 
-    @Step("Sign in to Basecamp")
+    public static void main(String[] args) {
+        searchPricesTzurYitzhak();
+    }
+
     public static void searchPricesTzurYitzhak() {
         driver.get(getDataFromXML("URL"));
         wait.until(ExpectedConditions.visibilityOf(searchSaleMainPage.search_btn));
@@ -24,24 +25,4 @@ public class WebFlows extends CommonOps {
         UiActions.click(searchSaleMainPage.search_btn);
 
     }
-
-    @Step("Sign out from Basecamp")
-    public static void signOut() {
-    }
-
-    @Step("Sign up to Basecamp")
-    public static void signUp() {
-
-    }
-
-    @Step("Add new project")
-    public static void addNewProject() {
-
-    }
-
-    @Step("Remove first project")
-    public static void removeAProject() {
-
-    }
-
 }

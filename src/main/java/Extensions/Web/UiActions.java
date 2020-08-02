@@ -2,6 +2,8 @@ package Extensions.Web;         //Actions we commonly do on UI objects will be w
                                 //the process. Inherits from CommonOps.
 
 import Utilities.CommonOps;
+import Utilities.HelperMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +15,25 @@ public class UiActions extends CommonOps {
         if (platform.equalsIgnoreCase("web"))
             wait.until(ExpectedConditions.visibilityOf(elem));
         elem.click();
+    }
+
+    public static void clickForPropertyType() {
+        click(searchSaleMainPage.apa_chcbx);
+        click(searchSaleMainPage.gardenApa_chcbx);
+        click(searchSaleMainPage.roofPenthouse_chcbx);
+        click(searchSaleMainPage.prvHouse_chcbx);
+        click(searchSaleMainPage.duplex_chcbx);
+        click(searchSaleMainPage.dblFamily_chcbx);
+    }
+
+    public static void clickForNoOfRooms() {
+        String fromRooms = String.valueOf(2 * Integer.parseInt(HelperMethods.getDataFromXML("fromRooms")));
+        String upToRooms = String.valueOf(2 * Integer.parseInt(HelperMethods.getDataFromXML("upToRooms")));
+        click(searchSaleMainPage.roomNum_btn);
+        click(searchSaleMainPage.fromRoomNum_btn);
+        click(driver.findElement(By.xpath("//div/div/div/div[1]/div/div[3]/ul/li[" + fromRooms + "]")));
+        click(searchSaleMainPage.toRoomNum_btn);
+        click(driver.findElement(By.xpath("//div/div/div/div[1]/div/div[3]/ul/li[" + upToRooms + "]")));
     }
 
     public static void insertKeys(WebElement elem, String info) {

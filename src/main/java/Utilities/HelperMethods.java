@@ -26,7 +26,7 @@ public class HelperMethods extends CommonOps {
         Document doc = null;
 
         try {
-            fXmlFile = new File("./Configurations/Config.xml");
+            fXmlFile = new File("./Configurations/configurations.xml");
             dbFactory = DocumentBuilderFactory.newInstance();
             dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(fXmlFile);
