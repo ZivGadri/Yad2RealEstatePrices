@@ -1,6 +1,7 @@
 package Utilities;
 //A class meant for declaring objects being used commonly across the project, such as WebDriver, WebDriverWait, Actions, Screenshot, PageObjects, primitives and more.
 
+import PageObjects.Web.ResultsPage;
 import PageObjects.Web.SearchSaleMainPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -37,5 +38,10 @@ public class Base {
 
     //Page Objects Web
     public static SearchSaleMainPage searchSaleMainPage;
+    public static ResultsPage resultsPage;
+
+    //Global vriables
+
+    public static int numberOfAdsInResults;
 
 }

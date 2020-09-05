@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Enviornment>
     <URL>https://www.yad2.co.il/realestate/forsale</URL>
-    <TzurYitzhak>צור יצחק</TzurYitzhak>
+    <Timeout>10</Timeout>
+    <Yishuv>צור יצחק</Yishuv>
     <fromRooms>4</fromRooms>
     <upToRooms>6</upToRooms>
 </Enviornment>

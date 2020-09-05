@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="716ffa19-7ada-4655-b0d8-961bc8d2565e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PageObjects/Web/SearchSaleMainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PageObjects/Web/ResultsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Configurations/configurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Configurations/configurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Extensions/Web/UiActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Extensions/Web/UiActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PageObjects/Web/AvatarMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PageObjects/Web/SearchSaleMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PageObjects/Web/SearchSaleMainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/CommonOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/CommonOps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Utilities/ManagePages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilities/ManagePages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkFlows/WebFlows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkFlows/WebFlows.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Extensions/Web/UiActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Extensions/Web/UiActions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PageObjects/Web/SearchSaleMainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PageObjects/Web/SearchSaleMainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utilities/CommonOps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utilities/CommonOps.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.TestSearch.searchPrices">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="Yad2RealEstatePrices" />
@@ -70,8 +74,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestSearch.searchPrices" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Yad2RealEstatePrices" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSearch" />
+      <option name="METHOD_NAME" value="searchPrices" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSearch.searchPricesTzurYitzhak" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Yad2RealEstatePrices" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSearch" />
+      <option name="METHOD_NAME" value="searchPricesTzurYitzhak" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.TestSearch.searchPrices" />
+        <item itemvalue="TestNG.TestSearch.searchPricesTzurYitzhak" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>

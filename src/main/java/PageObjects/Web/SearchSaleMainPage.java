@@ -12,6 +12,9 @@ public class SearchSaleMainPage {
     @FindBy(how = How.XPATH, using = "//form/ul/li[2]/div/div/div[1]/button")
     public WebElement propertyType_slct;
 
+    @FindBy(how = How.XPATH, using = "//li[2]/div/div/div[2]/div/button")
+    public WebElement morePropertyType_btn;
+
     @FindBy(how = How.XPATH, using = "//li[3]/div/div/div[1]/button")
     public WebElement roomNum_btn;
 
@@ -30,7 +33,7 @@ public class SearchSaleMainPage {
     @FindBy(how = How.XPATH, using = "//*[@data-test-id='searchButton']")
     public WebElement search_btn;
 
-    @FindBy(how = How.XPATH, using = "li[3]/div/span[1]/strong")
+    @FindBy(how = How.XPATH, using = "//li[3]/div/span[1]/strong")
     public WebElement tzurYizhak_btn;
 
     @FindBy(how = How.XPATH, using = "//*[@data-test-id='searchDropMultiCheckbox_Checkbox_1_property']")
